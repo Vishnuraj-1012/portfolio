@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact Me</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                VISHNU <span>RAJ</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="struct.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <h1>Contact Me</h1>
+            <p>I'd love to hear from you! Fill out the form below, and I'll get back to you as soon as possible.</p>
+            <form action="https://formsubmit.co/vishnuraj.40132@gmail.com" method="post" class="contact-form">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New submission!">
+
+
+                <!-- <input type="hidden" name="_next" value="struct.html"> -->
+
+
+                <div class="input-box">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="IN|+91">India (+91)</option>
+                        <option value="BD|+880">Bangladesh (+880)</option>
+                        <option value="US|+1">United States (+1)</option>
+                        <option value="GB|+44">United Kingdom (+44)</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <label for="number">Mobile Number</label>
+                    <input type="text" id="number" name="number" placeholder="Enter Mobile Number" required>
+                    <span id="number-error" style="color: red; font-size: 0.9rem; display: none;">Please enter a valid phone number.</span>
+                </div>
+                <div class="input-box">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+                    <span id="word-count" style="color: #e0e0e0; font-size: 0.9rem;">0/500 characters</span>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('country').addEventListener('change', function() {
+            const countryCode = this.value.split('|')[1];
+            const numberField = document.getElementById('number');
+            numberField.value = countryCode + ' ';
+        });
+
+        document.getElementById('message').addEventListener('input', function() {
+            const messageText = this.value;
+            const charCount = messageText.length;
+            const charLimit = 500;
+            document.getElementById('word-count').textContent = `${charCount}/${charLimit} characters`;
+
+            if (charCount > charLimit) {
+                this.value = messageText.substring(0, charLimit);
+                document.getElementById('word-count').textContent = `${charLimit}/${charLimit} characters (Limit reached)`;
+            }
+        });
+
+        document.getElementById('number').addEventListener('input', function() {
+            let mobileNumber = this.value;
+            mobileNumber = mobileNumber.replace(/[^\d+]/g, '');
+
+            const country = document.getElementById('country').value.split('|')[0];
+            let phoneRegex;
+            let validNumber = true;
+            let countryCode = '';
+
+            if (country === 'IN') {
+                // countryCode = '+91';
+                phoneRegex = /^[+]{0,1}[0-9]{10}$/;
+            } else if (country === 'BD') {
+                // countryCode = '+880';
+                phoneRegex = /^[+]{0,1}[0-9]{10}$/;
+            } else if (country === 'US') {
+                // countryCode = '+1';
+                phoneRegex = /^[+]{0,1}[0-9]{10}$/;
+            } else if (country === 'GB') {
+                // countryCode = '+44';
+                phoneRegex = /^[+]{0,1}[0-9]{10}$/;
+            }
+
+            if (phoneRegex.test(mobileNumber)) {
+                document.getElementById('number-error').style.display = 'none';
+            } else {
+                document.getElementById('number-error').style.display = 'inline';
+                validNumber = false;
+            }
+
+            if (mobileNumber.length < 10 || mobileNumber.length > 15) {
+                document.getElementById('number-error').style.display = 'inline';
+                validNumber = false;
+            }
+
+            if (validNumber) {
+                this.value = countryCode + ' ' + mobileNumber.slice(countryCode.length);
+            } else {
+                this.value = mobileNumber.slice(0, countryCode.length + 15);
+            }
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            let mobileNumber = document.getElementById('number').value.replace(/\s/g, '');
+            if (mobileNumber.length < 10 || mobileNumber.length > 15) {
+                alert('Please enter a valid phone number with 10 to 15 digits.');
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

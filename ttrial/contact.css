@@ -1,0 +1,223 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling
+body {
+    background-color: #000;
+    color: #fff;
+    overflow-y: auto; /* Enables scrolling on the entire page */
+    /* min-height: 100vh; Ensures the body has at least the full height of the viewport */
+
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #077b32, #34c759);
+    color: white;
+}
+
+.hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+/* Navigation Styling */
+.nav-container .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+}
+
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #077b32;
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+.nav-container .links a:hover {
+    color: #077b32;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.dropdown a {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #9ce2b6;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.dropdown a:hover {
+    color: #34c759;
+}
+
+.close {
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Contact Section Styling */
+.contact-section {
+    padding: 50px 20px;
+    background: linear-gradient(to right, #000, #1a1a1a);
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #34c759;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    text-align: center;
+    max-height: 80vh;  /* Maximum height to enable scrolling */
+    overflow-y: auto;
+    border-radius: 12px;
+    /* width: 12px;  Enables vertical scrolling inside the contact container */
+}
+
+.contact-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #34c759;
+}
+
+.contact-container p {
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #9ce2b6;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.input-box label {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #9ce2b6;
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #000;
+    background: #fff;
+    border: 2px solid #34c759;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    padding: 15px;
+    background: #34c759;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: transparent;
+    color: #34c759;
+    border: 2px solid #34c759;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container h1 {
+        font-size: 2rem;
+    }
+
+    .contact-container p {
+        font-size: 0.9rem;
+    }
+
+    .contact-form {
+        gap: 10px;
+    }
+}
+
+/* Contact Button Styling */
+.contact-btn {
+    background-color: #34c759;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-btn a {
+    text-decoration: none;
+    color: #000;
+}
+
+.contact-btn:hover {
+    background-color: transparent;
+    border: 2px solid #34c759;
+}
+
+.contact-btn a:hover {
+    color: #34c759;
+}

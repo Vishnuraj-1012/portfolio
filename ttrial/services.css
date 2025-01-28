@@ -1,0 +1,158 @@
+/* General styles for the Services page */
+
+.nav-container .links {
+    display: flex;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+}
+
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #077b32;
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+.nav-container .links a:hover {
+    color: #077b32;
+}
+
+.dropdown {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow:  0 0 20px black;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a:hover {
+    background-color: #077b32;
+}
+
+/* Custom Scrollbar for services container */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+    max-height: 600px; /* Set max height for scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 15px; /* Optional, to prevent content from touching scrollbar */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.services-container::-webkit-scrollbar {
+    width: 12px; /* Adjust width of the scrollbar */
+}
+
+.services-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Scrollbar track color */
+}
+
+.services-container::-webkit-scrollbar-thumb {
+    background-color: #000000; /* Scrollbar thumb color */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+.services-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker color on hover */
+}
+
+.service-box {
+    background-color: #fff;
+    padding: 25px;
+    width: calc(33.33% - 20px);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.service-box h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Button to explore further */
+.btn-explore {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.btn-explore a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-explore a:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-explore a:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add responsive design for services */
+@media (max-width: 768px) {
+    .services-container {
+        display: block;
+    }
+
+    .service-box {
+        width: 100%; /* Each service box takes full width on smaller screens */
+        margin-bottom: 20px;
+    }
+}
